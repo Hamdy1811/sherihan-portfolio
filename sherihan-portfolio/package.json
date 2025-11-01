@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  // package.json
 "homepage": "https://Hamdy1811.github.io/sherihan-portfolio",
-// Make sure to add this line if it is missing, or update it if it exists.
   "scripts": {
     "dev": "vite",
     "build": "vite build",

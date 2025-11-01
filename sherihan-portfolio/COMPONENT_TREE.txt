@@ -1,0 +1,184 @@
+SHERIHAN MOUNIR FASHION STYLIST PORTFOLIO
+Component Hierarchy & Structure
+
+App.jsx (Root Component)
+│
+├─── Header.jsx (Fixed Navigation)
+│    │
+│    ├─── Profile Image (50x50px rounded)
+│    ├─── Brand Name: "SHERIHAN MOUNIR"
+│    ├─── Desktop Navigation
+│    │    ├─── About (scroll to #about)
+│    │    ├─── Portfolio (scroll to #portfolio)
+│    │    └─── Contact (scroll to #contact)
+│    └─── Mobile Menu
+│         └─── Hamburger Toggle
+│
+├─── Hero.jsx (Main Hero Section)
+│    │
+│    ├─── Decorative Blur Circles (background)
+│    ├─── Hero Title: "FASHION STYLIST"
+│    ├─── Subtitle: "Transforming fashion narratives..."
+│    └─── CTA Buttons
+│         ├─── "View Portfolio" (white button)
+│         └─── "Get In Touch" (outline button)
+│
+├─── VideoHero.jsx (Full-Screen Video)
+│    │
+│    └─── Video Element
+│         ├─── Source: Video.mp4 (ImageKit)
+│         ├─── Autoplay: true
+│         ├─── Loop: true
+│         ├─── Muted: true
+│         └─── PlaysInline: true
+│
+├─── CreativeVision.jsx (About Section) #about
+│    │
+│    ├─── Animated Title: "FASHION STYLIST"
+│    │    └─── Letter-by-letter animation (staggered)
+│    │
+│    ├─── Paragraphs (sequential fade-in)
+│    │    ├─── Paragraph 1 (delay: 0.8s)
+│    │    ├─── Paragraph 2 (delay: 1.0s)
+│    │    └─── Paragraph 3 (delay: 1.2s)
+│    │
+│    └─── Skills Grid (2 columns)
+│         ├─── Creative Direction (delay: 1.4s)
+│         ├─── Visual Merchandising (delay: 1.5s)
+│         ├─── Brand Strategy (delay: 1.6s)
+│         └─── Photography Direction (delay: 1.7s)
+│
+├─── Portfolio.jsx (Portfolio Section) #portfolio
+│    │
+│    ├─── Section Header
+│    │    ├─── Title: "Portfolio"
+│    │    └─── Subtitle
+│    │
+│    ├─── Portfolio Grid (1-2-3 columns responsive)
+│    │    │
+│    │    ├─── Project Card 1: "Color Block City"
+│    │    │    ├─── Thumbnail Image (4:5 aspect)
+│    │    │    ├─── Category Badge
+│    │    │    ├─── Project Title
+│    │    │    └─── Role
+│    │    │
+│    │    ├─── Project Card 2: "Pastel & Print Utility"
+│    │    ├─── Project Card 3: "Urban Canvas"
+│    │    ├─── Project Card 4: "Equestrian Roots"
+│    │    └─── Project Card 5: "Skyline & Sand"
+│    │
+│    └─── ProjectModal.jsx (Conditional Render)
+│         │
+│         ├─── Modal Overlay (click to close)
+│         ├─── Modal Content
+│         │    ├─── Header
+│         │    │    ├─── Project Title
+│         │    │    ├─── Role
+│         │    │    └─── Close Button (X)
+│         │    │
+│         │    ├─── Two Column Layout
+│         │    │    │
+│         │    │    ├─── Left Column: Images
+│         │    │    │    ├─── Main Image (large)
+│         │    │    │    └─── Grid (2 smaller images)
+│         │    │    │
+│         │    │    └─── Right Column: Details
+│         │    │         ├─── Concept Section
+│         │    │         ├─── Execution Section
+│         │    │         ├─── Divider
+│         │    │         └─── Metadata
+│         │    │              ├─── Mood
+│         │    │              ├─── Aesthetic
+│         │    │              └─── Product Focus
+│         │    │
+│         └─── ESC Key Handler
+│
+├─── Contact.jsx (Contact Section) #contact
+│    │
+│    ├─── Title: "Let's Create Together"
+│    ├─── Subtitle
+│    ├─── CTA Buttons
+│    │    ├─── Email Button (accent color)
+│    │    │    └─── Link: sherihanmounir26@gmail.com
+│    │    └─── LinkedIn Button (outline)
+│    │         └─── Link: LinkedIn Profile
+│    └─── Contact Info
+│         ├─── Location: Cairo, Egypt
+│         └─── Phone: +20 109 903 3069
+│
+└─── Footer.jsx (Footer)
+     │
+     ├─── Brand Section
+     │    ├─── Name: "SHERIHAN MOUNIR"
+     │    └─── Title: "Fashion Stylist"
+     │
+     ├─── Social Links
+     │    ├─── Email Icon
+     │    └─── LinkedIn Icon
+     │
+     └─── Copyright
+          └─── "© 2024 Sherihan Mounir. All rights reserved."
+
+═══════════════════════════════════════════════════════════
+
+DATA STRUCTURE
+
+portfolioData.js
+│
+├─── Project 1: Color Block City
+│    ├─── id: 1
+│    ├─── title, role, category
+│    ├─── thumbnail (600x450)
+│    ├─── images[3] (1200x900)
+│    └─── concept, execution, mood, aesthetic, productFocus
+│
+├─── Project 2: Pastel & Print Utility
+├─── Project 3: Urban Canvas
+├─── Project 4: Equestrian Roots
+└─── Project 5: Skyline & Sand
+
+═══════════════════════════════════════════════════════════
+
+ANIMATION SYSTEM
+
+Framer Motion Variants:
+│
+├─── letterVariants
+│    ├─── hidden: { opacity: 0, y: 20 }
+│    └─── visible: { opacity: 1, y: 0, delay: i * 0.03 }
+│
+├─── paragraphVariants
+│    ├─── hidden: { opacity: 0, y: 30 }
+│    └─── visible: { opacity: 1, y: 0, delay: custom }
+│
+└─── skillVariants
+     ├─── hidden: { opacity: 0, y: 20 }
+     └─── visible: { opacity: 1, y: 0, delay: custom }
+
+Scroll Triggers:
+- useInView hook with threshold: 0.1
+- margin: -100px
+- once: true
+
+═══════════════════════════════════════════════════════════
+
+RESPONSIVE BEHAVIOR
+
+Mobile (< 768px):
+├─── Single column layouts
+├─── Hamburger navigation
+├─── Stacked buttons
+└─── Reduced typography scale
+
+Tablet (768px - 1024px):
+├─── Two column portfolio grid
+├─── Horizontal button layouts
+└─── Medium typography
+
+Desktop (> 1024px):
+├─── Three column portfolio grid
+├─── Full navigation bar
+├─── Large typography
+└─── Wide containers (max-w-7xl)
+
+═══════════════════════════════════════════════════════════
